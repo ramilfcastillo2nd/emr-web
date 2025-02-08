@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
-import { AppLayoutComponent } from './layout/app.layout.component';
 import { AppComponent } from './app.component';
 
 const routerOptions: ExtraOptions = {
