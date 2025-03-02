@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LayoutService } from './service/app.layout.service';
 import { Router } from '@angular/router';
+import { StorageService } from 'src/app/core/services/storage.service';
 
 @Component({
     selector: 'app-profilemenu',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class AppProfileSidebarComponent {
 
-    constructor(public layoutService: LayoutService, private router: Router) { }
+    constructor(public layoutService: LayoutService, private router: Router, private _storageService: StorageService) { }
 
     get visible(): boolean {
         return this.layoutService.state.profileSidebarVisible;
@@ -19,8 +20,7 @@ export class AppProfileSidebarComponent {
     }
 
     signOut() {
-        localStorage.removeItem('authToken');
-        //route to login page
+        this._storageService.clearToken();
         this.router.navigate(['/auth/login']);
     }
 }

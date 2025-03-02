@@ -2,6 +2,7 @@ import { OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { MenuService } from '../../core/services/menu.service';
 import { MenuPerRoleDto } from 'src/app/core/models/menu-per-role.dto';
+import { StorageService } from 'src/app/core/services/storage.service';
 
 @Component({
     selector: 'app-menu',
@@ -11,13 +12,16 @@ export class AppMenuComponent implements OnInit {
 
     model: any[] = [];
 
-    constructor(private _menuService: MenuService) { }
+    constructor(private _menuService: MenuService, private _storageService: StorageService) { }
 
     ngOnInit() {
-        this._menuService.getMenuListByRoleId(13).subscribe((response: MenuPerRoleDto) => {
-            console.log(response);
-            this.model = response.menus;
-        });
+        var roleId = this._storageService.getRoleId();
+        console.log('roleId from menu: ', roleId);
+        if(roleId) {
+            this._menuService.getMenuListByRoleId(13).subscribe((response: MenuPerRoleDto) => {
+                this.model = response.menus;
+            });
+        }
         // this.model = [
         //     {
         //         label: 'Dashboards',
