@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CommonModule, HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { AppLayoutModule } from './shared/layout/app.layout.module';
-import { LoginComponent } from './auth/login/login/login.component';
+import { LoginComponent } from './auth/login/login.component';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';

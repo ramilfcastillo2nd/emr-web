@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { AuthGuard } from './core/guards/auth.guard';
-import { LoginComponent } from './auth/login/login/login.component';
+import { LoginComponent } from './auth/login/login.component';
 
 const routerOptions: ExtraOptions = {
   anchorScrolling: 'enabled'
