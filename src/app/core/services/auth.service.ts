@@ -5,6 +5,7 @@ import { LoginInputDto } from '../models/login-input-dto';
 import { HttpClient } from '@angular/common/http';
 import { ERR_AUTH_CODE_MSG } from '../../app.constants';
 import { StorageService } from './storage.service';
+import { Observable } from 'rxjs';
 
 const apiBaseUrl = `${environment.apiUrl}/api`;
 interface IAuthUser {
@@ -25,6 +26,10 @@ export class AuthService {
     // Implement your authentication logic here
     // For example, check if a token exists in local storage
     return !!localStorage.getItem('authToken');
+  }
+
+  getCurrentUser(): Observable<any> {
+    return this.httpRequestService.get<any>(`${apiBaseUrl}/account`);
   }
 
   login(loginInput: LoginInputDto) {

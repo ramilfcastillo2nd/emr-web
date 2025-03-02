@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { MenuService } from '../../core/services/menu.service';
 import { MenuPerRoleDto } from 'src/app/core/models/menu-per-role.dto';
 import { StorageService } from 'src/app/core/services/storage.service';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
     selector: 'app-menu',
@@ -12,9 +13,13 @@ export class AppMenuComponent implements OnInit {
 
     model: any[] = [];
 
-    constructor(private _menuService: MenuService, private _storageService: StorageService) { }
+    constructor(private _menuService: MenuService, private _storageService: StorageService, private _authService: AuthService) { }
 
     ngOnInit() {
+        this._authService.getCurrentUser().subscribe((response) => {
+            console.log('response from menu get current user:  ', response);
+        }
+        );
         var roleId = this._storageService.getRoleId();
         console.log('roleId from menu: ', roleId);
         if(roleId) {

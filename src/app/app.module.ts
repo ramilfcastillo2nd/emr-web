@@ -11,6 +11,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { FormsModule } from '@angular/forms';
 import { AppConfigModule } from './shared/layout/config/app.config.module';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HeaderInterceptor } from './core/interceptors/header.interceptor';
 
 @NgModule({
   declarations: [
@@ -21,15 +23,20 @@ import { AppConfigModule } from './shared/layout/config/app.config.module';
     AppRoutingModule,
     AppLayoutModule,
     CommonModule,
-        // LoginRoutingModule,
-        ButtonModule,
-        InputTextModule,
-        CheckboxModule,
-        FormsModule,
-        AppConfigModule
+    // LoginRoutingModule,
+    ButtonModule,
+    InputTextModule,
+    CheckboxModule,
+    FormsModule,
+    AppConfigModule
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy }
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HeaderInterceptor,
+      multi: true
+    }
   ],
   bootstrap: [AppComponent]
 })
