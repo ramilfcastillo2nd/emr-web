@@ -17,16 +17,14 @@ export class AppMenuComponent implements OnInit {
 
     ngOnInit() {
         this._authService.getCurrentUser().subscribe((response) => {
-            console.log('response from menu get current user:  ', response);
-        }
-        );
-        var roleId = this._storageService.getRoleId();
-        console.log('roleId from menu: ', roleId);
-        if(roleId) {
-            this._menuService.getMenuListByRoleId(13).subscribe((response: MenuPerRoleDto) => {
-                this.model = response.menus;
-            });
-        }
+            this._storageService.setRoleId(response.roleId);
+            var roleId = this._storageService.getRoleId();
+            if (roleId) {
+                this._menuService.getMenuListByRoleId(roleId).subscribe((response: MenuPerRoleDto) => {
+                    this.model = response.menus;
+                });
+            }
+        });
         // this.model = [
         //     {
         //         label: 'Dashboards',

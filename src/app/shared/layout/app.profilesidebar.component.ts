@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LayoutService } from './service/app.layout.service';
 import { Router } from '@angular/router';
 import { StorageService } from 'src/app/core/services/storage.service';
@@ -7,8 +7,8 @@ import { StorageService } from 'src/app/core/services/storage.service';
     selector: 'app-profilemenu',
     templateUrl: './app.profilesidebar.component.html'
 })
-export class AppProfileSidebarComponent {
-
+export class AppProfileSidebarComponent implements OnInit {
+    fullName = '';
     constructor(public layoutService: LayoutService, private router: Router, private _storageService: StorageService) { }
 
     get visible(): boolean {
@@ -17,6 +17,10 @@ export class AppProfileSidebarComponent {
 
     set visible(_val: boolean) {
         this.layoutService.state.profileSidebarVisible = _val;
+    }
+
+    ngOnInit(): void {
+        this.fullName = `${this._storageService.getFirstName()} ${this._storageService.getLastName()}`;
     }
 
     signOut() {
