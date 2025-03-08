@@ -8,6 +8,7 @@ const routes: Routes = [
     path: '', component: AppLayoutComponent,
     children: [
       { path: 'dashboard', loadChildren: () => import('../shared/demo/components/dashboards/dashboards.module').then(m => m.DashboardsModule) },
+      { path: 'patients', loadChildren: () => import('./patients/patients.module').then(m => m.PatientsModule) },
       { path: 'uikit', data: { breadcrumb: 'UI Kit' }, loadChildren: () => import('../shared/demo/components/uikit/uikit.module').then(m => m.UIkitModule) },
       { path: 'utilities', data: { breadcrumb: 'Utilities' }, loadChildren: () => import('../shared/demo/components/utilities/utilities.module').then(m => m.UtilitiesModule) },
       { path: 'pages', data: { breadcrumb: 'Pages' }, loadChildren: () => import('../shared/demo/components/pages/pages.module').then(m => m.PagesModule) },
