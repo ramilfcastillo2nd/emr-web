@@ -3,13 +3,37 @@ import { CommonModule } from '@angular/common';
 
 import { PatientsRoutingModule } from './patients-routing.module';
 import { PatientsComponent } from './patients.component';
+import { TableModule } from 'primeng/table';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { DropdownModule } from 'primeng/dropdown';
+import { SliderModule } from 'primeng/slider';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { ToastModule } from 'primeng/toast';
+import { FormsModule } from '@angular/forms';
+import { RatingModule } from 'primeng/rating';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { ToggleButtonModule } from 'primeng/togglebutton';
+import { RippleModule } from 'primeng/ripple';
 
 
 @NgModule({
   declarations: [PatientsComponent],
   imports: [
     CommonModule,
-    PatientsRoutingModule
-  ]
+    PatientsRoutingModule,
+    FormsModule,
+		TableModule,
+		RatingModule,
+		ButtonModule,
+		SliderModule,
+		InputTextModule,
+		ToggleButtonModule,
+		RippleModule,
+		MultiSelectModule,
+		DropdownModule,
+		ProgressBarModule,
+		ToastModule
+]
 })
 export class PatientsModule { }
