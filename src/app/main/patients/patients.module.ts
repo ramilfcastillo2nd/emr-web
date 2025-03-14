@@ -15,10 +15,12 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { RippleModule } from 'primeng/ripple';
+import { PatientListComponent } from './patient-list/patient-list.component';
+import { PatientToolsComponent } from './patient-tools/patient-tools.component';
 
 
 @NgModule({
-  declarations: [PatientsComponent],
+  declarations: [PatientsComponent, PatientListComponent, PatientToolsComponent],
   imports: [
     CommonModule,
     PatientsRoutingModule,
