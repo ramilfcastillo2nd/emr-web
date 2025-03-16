@@ -1,0 +1,13 @@
+.flex-container {
+    display: flex;
+    justify-content: flex-start; /* Align items to the right */
+    align-items: fle;
+    flex-wrap: nowrap;
+  }
+  
+  .patient-info-button {
+    width: 500px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
